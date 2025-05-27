@@ -1,7 +1,9 @@
 # isvl
 # Create a new conda environment and install required packages.
   conda create -n cvprw python=3.8.12
+  
   conda activate cvprw
+  
   pip install -r requirements.txt
 
 Experiments are conducted on NVIDIA GeForce RTX 4090 (24GB). Same GPU and package version are recommended.

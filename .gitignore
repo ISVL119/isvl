@@ -1,0 +1,20 @@
+*.pth
+*.jpg
+*.tiff
+*.pyc
+*.xlsx
+*.gz
+
+# 忽略文件夹
+log/chekpoints
+log/foreground
+log/retrieval
+data/mvtec_test_vial_fruit
+mvtec_ad_2/
+mvtec_ad_2_aug/
+save_dir/
+result/
+results/anomaly_images
+results/anomaly_images_thresholded
+saved_results/
+submission_folder/

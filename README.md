@@ -40,6 +40,11 @@ bash submitv2.sh
 ```
 The final submission result is the `results.tar.gz` file located in the current directory.
 
+> ⚠️ **Note on CPR Results:**  
+> The results from [CPR](https://github.com/flyinghu123/CPR) are not fully stable.  
+> We have made every effort to ensure consistency, but there may still be a variation of approximately **0.5%** for each class.  
+> For more details, please refer to [this issue](https://github.com/flyinghu123/CPR/issues/21) in the CPR repository.
+
 ## Acknowledgements
 
 This project is built upon ideas and code from  [**INP-Former**](https://github.com/luow23/INP-Former) and [**CPR**](https://github.com/flyinghu123/CPR).  

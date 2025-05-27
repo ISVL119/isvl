@@ -410,10 +410,9 @@ def main(args):
                         anomaly_map = anomaly_map_batch[idx, 0].detach().cpu().numpy()
                         anomaly_map = np.clip(anomaly_map, 0, 1)
                         all_anomaly_scores.append(anomaly_map)
-        # 如果你要对所有像素统计，stack成一个大数组
+
         all_anomaly_scores_np = np.stack(all_anomaly_scores, axis=0)  # 形状: [N, H, W]
 
-        # 1. 计算所有像素的均值和方差
         mean_value = np.mean(all_anomaly_scores_np) * 255
         std_value = np.std(all_anomaly_scores_np) * 255
 
@@ -449,14 +448,7 @@ if __name__ == '__main__':
     parser.add_argument('--item_list', nargs='+', default=['can'], help='item列表（空格分隔）')
 
     args = parser.parse_args()
-    # category info
-    # if args.dataset == 'mvtec_ad_2':
-    #     # args.item_list = ['can', 'fabric', 'fruit_jelly', 'rice',
-    #     #                    'sheet_metal', 'vial', 'wallplugs', 'walnuts'
-    #     # ]
-    #     args.item_list = [
-    #                        'walnuts'
-    #     ]
+
     args.save_name = args.save_name + f'_dataset={args.dataset}_Encoder={args.encoder}_Resize={args.input_size}_Crop={args.crop_size}_INP_num={args.INP_num}_CLASS={args.item_list[0]}'
     logger = get_logger(args.save_name, os.path.join(args.save_dir, args.save_name))
     print_fn = logger.info

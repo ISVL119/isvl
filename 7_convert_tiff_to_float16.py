@@ -48,6 +48,6 @@ def convert_images_to_float16_tiff(root_dir: str):
 
 # 使用方法
 if __name__ == "__main__":
-    directory = "./results/anomaly_images"  # 替换为你实际的路径 H:\Anomaly Detection Codes\CVPRW\INP-Former\VAND2025
+    directory = "./results/anomaly_images"
     convert_images_to_float16_tiff(directory)
 

@@ -1,6 +1,8 @@
+## Split the input images and organize them into the format required for training.
 python 1_image_splitter.py
 python 1_restructure_mvtec_dataset.py
 
+## train
 python isvl.py  --item_list can --total_epochs 10
 python isvl.py  --item_list fabric --total_epochs 10
 python isvl.py  --item_list rice --total_epochs 10
@@ -87,13 +89,26 @@ python test_new.py -fd log/foreground/foreground_mvtec_test_vial_fruit \
 -dn mvtec_test_vial_fruit \
 --sub-categories vial
 
-
+# Stitch the predicted image patches back into full-size images.
 python 2_image_reconstruction.py
+
+# Delete the original patch folders and rename the folders containing the stitched images.
 python 3_replace_and_rename_folders.py
+
+#Apply thresholding 
 python 4_threshold_mapv2.py
+
+# post-processing (fabric)
 python 5_post_image_process.py
+
+# post-processing (fruit_jelly)
 python 5_erode_image.py
+
+# post-processing (wallnuts)
 python 5_post_image_process_wallnuts.py
+
+# Delete the original folders and rename the post-processed folders (fabric)
 python 6_replace_and_rename_folders.py
+
 python 7_convert_tiff_to_float16.py
 python 8_check_and_prepare_data_for_upload.py "./results/"
